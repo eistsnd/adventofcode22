@@ -4,7 +4,7 @@ import elf_goodies
 if __name__ == '__main__':
     elf_bags = []
 
-    with open('day1.txt', 'r') as f:
+    with open('day1_input.txt', 'r') as f:
         bag = elf_goodies.Bag()
         liter = (l.rstrip("\r\n") for l in f)
         # should there be more consecutive blank lines i might be royally fucked but im to lazy to figure this shit out
