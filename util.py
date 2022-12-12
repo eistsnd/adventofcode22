@@ -30,7 +30,7 @@ def build_matrix(cols, rows, filler):
 
 def draw_matrix(matrix):
     for row in matrix:
-        print(''.join(row))
+        print(''.join([str(item) for item in row]))
 
 
 def get_enclosing_coos(points):

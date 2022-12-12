@@ -13,7 +13,6 @@ if __name__ == '__main__':
     with open('day5_cargo_input.txt') as file:
         raw_lines = [line[1::4] for line in file]
 
-
     with open('day5_moves_input.txt') as file:
         moves = [convert_to_programmer_numbers(line) for line in file]
 

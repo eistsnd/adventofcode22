@@ -17,9 +17,21 @@ def convert_to_array_notation(self, x_min, y_min, y_max):
     return magic
 
 
+def get_element_from(self, matrix):
+    if self.x < 0 or self.y < 0:
+        raise IndexError
+    return matrix[self.x][self.y]
+
+
+def set_element_to(self, matrix, value):
+    matrix[self.x][self.y] = value
+
+
 Point.__add__ = add
 Point.__sub__ = sub
 Point.convert_to_array_notation = convert_to_array_notation
+Point.get_element_from = get_element_from
+Point.set_element_to = set_element_to
 
 
 UP = Point(0, 1)
