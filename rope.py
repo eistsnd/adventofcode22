@@ -1,5 +1,5 @@
 from point import Point
-from util import build_matrix, draw_matrix, get_enclosing_coos
+from util import build_matrix, draw_matrix, get_enclosing_coos, sign
 
 
 class Rope:
@@ -39,14 +39,6 @@ class Rope:
 
     @classmethod
     def find_tail(cls, head, tail):
-        def sign(n):
-            if n > 0:
-                return 1
-            if n == 0:
-                return 0
-            if n < 0:
-                return -1
-
         new_tail = tail
         diff_x = head.x - tail.x
         diff_y = head.y - tail.y

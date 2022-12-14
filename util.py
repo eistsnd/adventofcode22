@@ -40,3 +40,10 @@ def get_enclosing_coos(points):
     return x_min, y_min, x_max, y_max
 
 
+def sign(n):
+    if n > 0:
+        return 1
+    if n == 0:
+        return 0
+    if n < 0:
+        return -1

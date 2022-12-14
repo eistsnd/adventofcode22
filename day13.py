@@ -53,6 +53,7 @@ if __name__ == '__main__':
         (process(packets[j], packets[j + 1]), (i + 1))
         for i, j in enumerate(range(0, len(packets), 2))
     ]
+
     sum_of_indices_of_pairs_in_order = sum([pair[1] for pair in pairs_in_order if pair[0] == -1])
     print(sum_of_indices_of_pairs_in_order)
 

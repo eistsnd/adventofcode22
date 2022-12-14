@@ -40,4 +40,3 @@ LEFT = Point(-1, 0)
 RIGHT = Point(1, 0)
 
 directions = [UP, DOWN, LEFT, RIGHT]
-
