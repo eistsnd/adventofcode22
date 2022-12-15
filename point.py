@@ -1,4 +1,5 @@
 from collections import namedtuple
+from functools import reduce
 
 Point = namedtuple('Point', ['x', 'y'])
 
@@ -40,3 +41,24 @@ LEFT = Point(-1, 0)
 RIGHT = Point(1, 0)
 
 directions = [UP, DOWN, LEFT, RIGHT]
+
+Range = namedtuple('Range', ['start', 'end'])
+
+
+def union_of_ranges(ranges):
+    ranges_sorted = sorted(ranges, key=lambda range: range.start)
+
+    return reduce(
+        lambda acc, coverage: acc[:-1] + [Range(acc[-1].start, max(acc[-1].end, coverage.end))]
+        if coverage.start-1 <= acc[-1].end
+        else acc + [coverage],
+        ranges_sorted[1:],
+        ranges_sorted[0:1]
+    )
+
+
+def trim_ranges(ranges, range):
+    if ranges[0].start < range.start:
+        ranges[0] = Range(range.start, ranges[0].end)
+    if range.end < ranges[-1].end:
+        ranges[-1] = Range(ranges[-1].start, range.end)
