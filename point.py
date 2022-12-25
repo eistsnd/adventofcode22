@@ -2,6 +2,7 @@ from collections import namedtuple
 from functools import reduce
 
 Point = namedtuple('Point', ['x', 'y'])
+Point3d = namedtuple('Point3d', ['x', 'y', 'z'])
 
 
 def add(self, other):

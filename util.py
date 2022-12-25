@@ -47,3 +47,17 @@ def sign(n):
         return 0
     if n < 0:
         return -1
+
+
+def combinations2(lst):
+    p = []
+
+    if len(lst) == 1:
+        return [(lst[0], None), (None, lst[0])]
+
+    for first in lst:
+        for second in lst:
+            if first != second:
+                p.append((first, second))
+
+    return p
