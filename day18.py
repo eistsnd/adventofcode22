@@ -10,8 +10,8 @@ def scan_surface(points, s1, s2, s3):
 
     counter = 0
 
-    for s1_running in range(s1_min, s1_max+1):
-        for s2_running in range(s2_min, s2_max+1):
+    for s1_running in range(s1_min, s1_max + 1):
+        for s2_running in range(s2_min, s2_max + 1):
             points_in_line = sorted(
                 filter(
                     lambda point: attrgetter(s1)(point) == s1_running and attrgetter(s2)(point) == s2_running,
@@ -19,15 +19,14 @@ def scan_surface(points, s1, s2, s3):
                 ),
                 key=attrgetter(s3)
             )
-            print(points_in_line)
 
             inner_counter = 0
 
             if len(points_in_line):
                 inner_counter = 2
             if 1 < len(points_in_line):
-                for i in range(len(points_in_line)-1):
-                    if attrgetter(s3)(points_in_line[i+1]) - attrgetter(s3)(points_in_line[i]) != 1:
+                for i in range(len(points_in_line) - 1):
+                    if attrgetter(s3)(points_in_line[i + 1]) - attrgetter(s3)(points_in_line[i]) != 1:
                         inner_counter += 2
 
             print(inner_counter)
@@ -39,15 +38,10 @@ def scan_surface(points, s1, s2, s3):
 
 if __name__ == '__main__':
     with open('day18_input.txt') as file:
-        points = [Point3d(*[int(coo) for coo in line.rstrip().split(',')])for line in file]
+        points = [Point3d(*[int(coo) for coo in line.rstrip().split(',')]) for line in file]
 
     min(points, key=attrgetter('x'))
     surfaces = [('x', 'y', 'z'), ('x', 'z', 'y'), ('y', 'z', 'x')]
 
     total_surface = sum([scan_surface(points, *surface) for surface in surfaces])
     print(total_surface)
-
-
-
-
-

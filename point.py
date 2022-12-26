@@ -2,7 +2,6 @@ from collections import namedtuple
 from functools import reduce
 
 Point = namedtuple('Point', ['x', 'y'])
-Point3d = namedtuple('Point3d', ['x', 'y', 'z'])
 
 
 def add(self, other):
@@ -63,3 +62,13 @@ def trim_ranges(ranges, range):
         ranges[0] = Range(range.start, ranges[0].end)
     if range.end < ranges[-1].end:
         ranges[-1] = Range(ranges[-1].start, range.end)
+
+
+Point3d = namedtuple('Point3d', ['x', 'y', 'z'])
+
+
+def add3d(self, point3d):
+    return Point3d(self.x + point3d.x, self.y + point3d.y, self.z + point3d.z)
+
+
+Point3d.__add__ = add3d
